@@ -564,8 +564,8 @@ if (window.ChatWidgetConfig && window.ChatWidgetConfig.style) {
             welcomeText: '',
             responseTimeText: '',
             poweredBy: {
-                text: 'Powered by n8n',
-                link: 'https://n8n.partnerlinks.io/fabimarkl'
+                text: 'Powered by botifai',
+                link: 'https://botifai.co.uk'
             }
         },
         style: {

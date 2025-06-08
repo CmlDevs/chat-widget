@@ -176,7 +176,7 @@
         .chat-assist-widget .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 20px 20px 60px 20px; /* Add more bottom padding */
             background: #f9fafb;
             display: flex;
             flex-direction: column;

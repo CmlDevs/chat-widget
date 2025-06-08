@@ -9,7 +9,6 @@
     fontElement.rel = 'stylesheet';
     fontElement.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap';
     document.head.appendChild(fontElement);
-
     // Apply widget styles with completely different design approach
     const widgetStyles = document.createElement('style');
     widgetStyles.textContent = `
@@ -532,6 +531,27 @@
         }
     `;
     document.head.appendChild(widgetStyles);
+
+    // Inject dynamic bubble styles from ChatWidgetConfig.style if provided
+if (window.ChatWidgetConfig && window.ChatWidgetConfig.style) {
+    const s = window.ChatWidgetConfig.style;
+
+    const dynamicStyle = document.createElement('style');
+    dynamicStyle.textContent = `
+        ${s.botBubbleBackground || s.botBubbleTextColor ? `
+        .chat-assist-widget .chat-bubble.bot-bubble {
+            ${s.botBubbleBackground ? `background: ${s.botBubbleBackground} !important;` : ''}
+            ${s.botBubbleTextColor ? `color: ${s.botBubbleTextColor} !important;` : ''}
+        }` : ''}
+        
+        ${s.userBubbleBackground || s.userBubbleTextColor ? `
+        .chat-assist-widget .chat-bubble.user-bubble {
+            ${s.userBubbleBackground ? `background: ${s.userBubbleBackground} !important;` : ''}
+            ${s.userBubbleTextColor ? `color: ${s.userBubbleTextColor} !important;` : ''}
+        }` : ''}
+    `;
+    document.head.appendChild(dynamicStyle);
+}
 
     // Default configuration
     const defaultSettings = {
